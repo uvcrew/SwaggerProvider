@@ -136,7 +136,7 @@ type OperationCompiler (schema:OpenApiDocument, defCompiler:DefinitionCompiler, 
             let okResponse = // BUG :  wrong selector
                 operation.Responses
                 |> Seq.tryFind (fun resp ->
-                    resp.Key = "200" || resp.Key = "201") // or default
+                    resp.Key = "200" || resp.Key = "201" || resp.Key = "202") // or default
             match okResponse with
             | Some (kv) ->
                 // TODO: FTW media type ?

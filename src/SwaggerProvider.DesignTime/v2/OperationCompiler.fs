@@ -55,7 +55,7 @@ type OperationCompiler (schema:SwaggerObject, defCompiler:DefinitionCompiler, ig
         let retTy =
             let okResponse = // BUG :  wrong selector
                 op.Responses |> Array.tryFind (fun (code, _) ->
-                    (code.IsSome && (code.Value = 200 || code.Value = 201)) || code.IsNone)
+                    (code.IsSome && (code.Value = 200 || code.Value = 201 || code.Value = 202)) || code.IsNone)
             match okResponse with
             | Some (_,resp) ->
                 match resp.Schema with
